@@ -1,7 +1,6 @@
 import { Outlet } from "react-router-dom"
 
 import SideBar from "./components/NavBar"
-import DashBoard from "./components/DashBoard"
 
 function App() {
   return (

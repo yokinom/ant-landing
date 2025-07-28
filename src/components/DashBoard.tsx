@@ -1,7 +1,7 @@
 import { Input } from "./ui/input";
-import { RefreshCcw, PlusIcon, DatabaseIcon, Search } from "lucide-react";
+import { RefreshCcw, DatabaseIcon, Search } from "lucide-react";
 import useRepository from "../store/repository";
-
+import AddRepositoryDialog from "./AddRepositoryDialog";
 const DashBoard = () => {
 
     const { repositories } = useRepository();
@@ -11,7 +11,7 @@ const DashBoard = () => {
             <div className="md:flex items-center justify-between p-4 border-b">
                 <div className="flex flex-col gap-2">
                     <h1 className="text-xl">Repositories</h1>
-                    <span className="text-sm text-gray-500">12 total repositories</span>
+                    <span className="text-sm text-gray-500">{repositories.length} total repositories</span>
                     <div className="relative w-full mt-1">
                         <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-500" />
                         <Input
@@ -26,10 +26,7 @@ const DashBoard = () => {
                         <RefreshCcw className="h-5 w-5" />
                         Refresh All
                     </button>
-                    <button className="p-2 flex text-sm items-center text-white bg-blue-600 rounded-md hover:bg-blue-700">
-                        <PlusIcon className="h-5 w-5" />
-                        Add Repository
-                    </button>
+                    <AddRepositoryDialog />
                 </div>
             </div>
 

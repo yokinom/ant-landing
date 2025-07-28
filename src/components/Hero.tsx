@@ -1,11 +1,11 @@
 import SMALLLOGO from '../assets/ant-ui-small.svg'
 import pie from '../assets/icons/pie.svg'
-// import upArrow from '../assets/icon-pack/small right 2.svg'
+import { ArrowUp } from 'lucide-react'
 import ANTLOGO from '../assets/ant-ui.svg'
 
 const Hero = () => {
     return (
-        <div className='w-[50%] hidden sm:flex justify-center items-center relative mx-auto'>
+        <div className='h-full hidden sm:flex justify-center items-center relative mx-auto'>
             <div className='max-w-[475px] w-full min-h-80 relative'>
                 <div className='max-w-[447px] w-full min-h-44 px-7 py-5 h-full rounded-3xl shadow-[0px_0px_30px] shadow-[rgb(8,23,53,0.16)] grid grid-cols-1'>
                     <div className='flex w-full gap-2 h-9'>
@@ -37,7 +37,7 @@ const Hero = () => {
                         </span>
                         <div className="text-left flex justify-center items-center flex-col">
                             <span className="flex text-blue-800 font-semibold text-sm w-full items-start">
-                                {/* <MoveUp /> */}
+                                <ArrowUp className='h-6 w-6' />
                                 14%
                             </span>
                             <p className="text-xs self-end ml-auto ">This Week</p>

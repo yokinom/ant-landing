@@ -1,7 +1,11 @@
 import { Input } from "./ui/input";
 import { RefreshCcw, PlusIcon, DatabaseIcon, Search } from "lucide-react";
+import useRepository from "../store/repository";
 
 const DashBoard = () => {
+
+    const { repositories } = useRepository();
+
     return (
         <>
             <div className="md:flex items-center justify-between p-4 border-b">
@@ -30,24 +34,24 @@ const DashBoard = () => {
             </div>
 
             <div className="divide-y overflow-y-auto max-h-[calc(100vh-210px)]">
-                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((_repo, index) => (
-                    <div key={index} className="p-4 hover:bg-gray-50">
+                {repositories.map((repo, index) => (
+                    <div key={`repo-${index}`} className="p-4 hover:bg-gray-50">
                         <div className="flex items-center gap-2">
-                            <h3 className="text-lg">example-repo</h3>
+                            <h3 className="text-lg">{repo.name}</h3>
                             <span className="px-3 py-1 text-xs font-medium text-gray-600 bg-[#EFF8FF] border-[#B2DDFF] rounded-full">
-                                Public
+                                {repo.visibility}
                             </span>
                         </div>
                         <div className="mt-2 flex items-center space-x-4 text-sm text-gray-500">
                             <span className="flex items-center gap-2">
-                                JavaScript
+                                {repo.technology}
                                 <span className="w-2 h-2 bg-[#1570EF] rounded-full mr-2"></span>
                             </span>
                             <span className="flex items-center gap-1">
                                 <DatabaseIcon className="w-[10.5px] h-3" />
-                                234 KB
+                                {repo.size} KB
                             </span>
-                            <span>Updated 2 days ago</span>
+                            <span>{repo.last_update}</span>
                         </div>
                     </div>
                 ))}

@@ -2,16 +2,21 @@ import { Outlet, useLocation, useNavigate } from "react-router-dom"
 
 import SideBar from "./components/NavBar"
 import { useEffect } from "react";
+import useAuthStore from "./store/auth";
 
 function App() {
   const { pathname } = useLocation();
   const navigate = useNavigate();
+  const authProvier = useAuthStore((state) => state.provider);
 
   useEffect(() => {
+    if (!authProvier) {
+      navigate("/auth/signin")
+    }
     if (pathname === "/") {
       navigate("/repositories");
     }
-  }, [pathname, navigate])
+  }, [pathname, navigate, authProvier])
 
   return (
     <>

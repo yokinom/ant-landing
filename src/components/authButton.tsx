@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import useAuthStore from "../store/auth";
 
 type AuthButtonProps = {
     icon: string,
@@ -8,9 +9,11 @@ type AuthButtonProps = {
 const AuthButton = ({ icon, label }: AuthButtonProps) => {
 
     const navigation = useNavigate();
+    const setProvider = useAuthStore((state) => state.setProvider)
 
     return (
         <button className="border border-[#E9EAEB] w-full rounded-md py-3 px-4" onClick={() => {
+            setProvider(label);
             navigation("/")
         }}>
             <div className="flex gap-2 justify-center">

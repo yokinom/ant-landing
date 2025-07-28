@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { BookText, Cloud, CodeXml, House, LogOut, Phone, Settings } from "lucide-react"
 
 import { useLocation } from "react-router-dom";
+import useAuthStore from "../store/auth";
 
 type NavItemsProps = {
     isOpen: boolean
@@ -9,6 +10,9 @@ type NavItemsProps = {
 
 export const NavItems = ({ isOpen }: NavItemsProps) => {
     const location = useLocation();
+
+    const logOut = useAuthStore((state) => state.clearProvider)
+
     return (
         <>
             <nav className="flex-1">
@@ -59,7 +63,9 @@ export const NavItems = ({ isOpen }: NavItemsProps) => {
                                     </Link>
                                 </li>
                                 <li className="hover:bg-gray-100 rounded-md">
-                                    <Link to="/settings" className="flex items-center p-2 mb-2 text-gray-700">
+                                    <Link to="/settings" className="flex items-center p-2 mb-2 text-gray-700" onClick={() => {
+                                        logOut()
+                                    }}>
                                         <span className="flex gap-2"><LogOut className="h-6 w-6" />Logout</span>
                                     </Link>
                                 </li>

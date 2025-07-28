@@ -16,14 +16,13 @@ function App() {
   return (
     <>
       <div className="grid grid-cols-1 md:grid-cols-4">
-
-        <div className="hidden md:block col-span-1 border-r">
+        <div className="hidden md:block col-span-1 border-r h-screen sticky top-0">
           <SideBar />
         </div>
 
-        <div className="col-span-1 md:col-span-3 p-4">
+        <div className="col-span-1 md:col-span-3 p-4 max-h-screen">
           <div className="md:p-6">
-            <div className="border bg-[#FAFAFA] rounded-lg shadow-sm w-full">
+            <div className="border bg-[#FAFAFA] rounded-lg shadow-sm w-full h-full">
               <Outlet />
             </div>
           </div>

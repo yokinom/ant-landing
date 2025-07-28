@@ -29,7 +29,7 @@ const DashBoard = () => {
                 </div>
             </div>
 
-            <div className="divide-y">
+            <div className="divide-y overflow-y-auto max-h-[calc(100vh-210px)]">
                 {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((_repo, index) => (
                     <div key={index} className="p-4 hover:bg-gray-50">
                         <div className="flex items-center gap-2">

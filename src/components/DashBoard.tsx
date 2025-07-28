@@ -1,10 +1,14 @@
+import { useState } from "react";
 import { Input } from "./ui/input";
 import { RefreshCcw, DatabaseIcon, Search } from "lucide-react";
 import useRepository from "../store/repository";
 import AddRepositoryDialog from "./AddRepositoryDialog";
+
 const DashBoard = () => {
 
     const { repositories } = useRepository();
+
+    const [searchTerm, setSearchTerm] = useState<string>("");
 
     return (
         <>
@@ -18,6 +22,7 @@ const DashBoard = () => {
                             type="search"
                             placeholder="Search repositories..."
                             className="pl-10 pr-4 h-9 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                            onChange={(e) => setSearchTerm(e.target.value)}
                         />
                     </div>
                 </div>
@@ -32,25 +37,27 @@ const DashBoard = () => {
 
             <div className="divide-y overflow-y-auto max-h-[calc(100vh-210px)]">
                 {repositories.map((repo, index) => (
-                    <div key={`repo-${index}`} className="p-4 hover:bg-gray-50">
-                        <div className="flex items-center gap-2">
-                            <h3 className="text-lg">{repo.name}</h3>
-                            <span className="px-3 py-1 text-xs font-medium text-gray-600 bg-[#EFF8FF] border-[#B2DDFF] rounded-full">
-                                {repo.visibility}
-                            </span>
+                    repo.name.includes(searchTerm) ? (
+                        <div key={`repo-${index}`} className="p-4 hover:bg-gray-50">
+                            <div className="flex items-center gap-2">
+                                <h3 className="text-lg">{repo.name}</h3>
+                                <span className="px-3 py-1 text-xs font-medium text-gray-600 bg-[#EFF8FF] border-[#B2DDFF] rounded-full">
+                                    {repo.visibility}
+                                </span>
+                            </div>
+                            <div className="mt-2 flex items-center space-x-4 text-sm text-gray-500">
+                                <span className="flex items-center gap-2">
+                                    {repo.technology}
+                                    <span className="w-2 h-2 bg-[#1570EF] rounded-full mr-2"></span>
+                                </span>
+                                <span className="flex items-center gap-1">
+                                    <DatabaseIcon className="w-[10.5px] h-3" />
+                                    {repo.size} KB
+                                </span>
+                                <span>{repo.last_update}</span>
+                            </div>
                         </div>
-                        <div className="mt-2 flex items-center space-x-4 text-sm text-gray-500">
-                            <span className="flex items-center gap-2">
-                                {repo.technology}
-                                <span className="w-2 h-2 bg-[#1570EF] rounded-full mr-2"></span>
-                            </span>
-                            <span className="flex items-center gap-1">
-                                <DatabaseIcon className="w-[10.5px] h-3" />
-                                {repo.size} KB
-                            </span>
-                            <span>{repo.last_update}</span>
-                        </div>
-                    </div>
+                    ) : null
                 ))}
             </div>
         </>

@@ -9,7 +9,7 @@ import WIP from './components/WIP.tsx';
 
 const routes = createBrowserRouter([
   {
-    path: "/signin",
+    path: "/auth/signin",
     element: <SignInScreen />
   },
   {

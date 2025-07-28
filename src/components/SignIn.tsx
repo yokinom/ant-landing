@@ -52,7 +52,7 @@ const SignIn = () => {
 
                 <div className="border-b w-full p-6 space-y-6 lg:max-h=[276px] lg:pt-9 lg:pr-6 lg:pb-9 lg:pl-6">
 
-                    <div className="space-y-4 lg:w-[624px] lg:h-[124px]">
+                    <div className="space-y-4 lg:max-w-[624px] lg:h-[124px]">
                         <div className="flex justify-center items-center gap-2">
                             <img src={Logo} alt="CodeAnt AI Logo" className="h-8" />
                             <h2 className="text-2xl text-[30px] font-normal">

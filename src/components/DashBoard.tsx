@@ -22,13 +22,13 @@ const DashBoard = () => {
                         <RefreshCcw className="h-5 w-5" />
                         Refresh All
                     </button>
-                    <button className="p-2 flex text-sm text-white bg-blue-600 rounded-md hover:bg-blue-700">
+                    <button className="p-2 flex text-sm items-center text-white bg-blue-600 rounded-md hover:bg-blue-700">
                         <PlusIcon className="h-5 w-5" />
                         Add Repository
                     </button>
                 </div>
             </div>
-            
+
             <div className="divide-y">
                 {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((_repo, index) => (
                     <div key={index} className="p-4 hover:bg-gray-50">

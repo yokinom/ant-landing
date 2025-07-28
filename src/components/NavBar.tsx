@@ -10,17 +10,14 @@ const SideBar = () => {
 
     return (
         <>
-            <div className="hidden md:block col-span-1 border-r">
-                {/* Logo and name container */}
-                <div className="flex items-center gap-2 px-5 py-6">
-                    <img src={antAILogo} alt="Ant AI Logo" className="w-8 h-8" />
-                    <span className="text-2xl font-sans">CodeAnt AI</span>
-                </div>
-                {/* Repo Selector */}
-                <RepoSelect />
-                {/* Navigation items */}
-                <NavItems isOpen={false} />
+            <div className="flex items-center gap-2 px-5 py-6">
+                <img src={antAILogo} alt="Ant AI Logo" className="w-8 h-8" />
+                <span className="text-2xl font-sans">CodeAnt AI</span>
             </div>
+
+            <RepoSelect />
+
+            <NavItems isOpen={false} />
 
             <div className="md:hidden flex justify-between items-center p-4 border-b">
                 <div className="flex gap-2">

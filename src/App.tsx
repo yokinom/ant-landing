@@ -1,8 +1,18 @@
-import { Outlet } from "react-router-dom"
+import { Outlet, useLocation, useNavigate } from "react-router-dom"
 
 import SideBar from "./components/NavBar"
+import { useEffect } from "react";
 
 function App() {
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (pathname === "/") {
+      navigate("/repositories");
+    }
+  }, [pathname, navigate])
+
   return (
     <>
       <div className="grid grid-cols-1 md:grid-cols-4">

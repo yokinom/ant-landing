@@ -55,11 +55,11 @@ const SignIn = () => {
                     <div className="space-y-4 lg:w-[624px] lg:h-[124px]">
                         <div className="flex justify-center items-center gap-2">
                             <img src={Logo} alt="CodeAnt AI Logo" className="h-8" />
-                            <h2 className="text-2xl font-semibold">
+                            <h2 className="text-2xl text-[30px] font-normal">
                                 CodeAnt AI
                             </h2>
                         </div>
-                        <h3 className="text-center text-gray-600 text-lg font-semibold">
+                        <h3 className="text-center font-semibold text-2xl leading-[48px] lg:text-[32px]">
                             Welcome to CodeAnt AI
                         </h3>
                     </div>
@@ -93,8 +93,8 @@ const SignIn = () => {
                 </div>
             </div>
 
-            <p className="text-base text-gray-600 p-6 mt-8">
-                By signing up you agree to the <span className="font-medium text-gray-900 hover:underline cursor-pointer">Privacy Policy</span>.
+            <p className="text-base p-6 mt-8">
+                By signing up you agree to the <span className="font-bold leading-6 text-sm lg:text-base text-gray-900 hover:underline cursor-pointer">Privacy Policy</span>.
             </p>
         </>
     )

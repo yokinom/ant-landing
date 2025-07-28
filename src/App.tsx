@@ -16,9 +16,7 @@ function App() {
   return (
     <>
       <div className="grid grid-cols-1 md:grid-cols-4">
-        <div className="hidden md:block col-span-1 border-r h-screen sticky top-0">
-          <SideBar />
-        </div>
+        <SideBar />
 
         <div className="col-span-1 md:col-span-3 p-4 max-h-screen">
           <div className="md:p-6">
